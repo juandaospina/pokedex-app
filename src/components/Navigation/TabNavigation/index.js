@@ -6,13 +6,15 @@ import Account from '../../../screens/Account';
 import Favorite from '../../../screens/Favorites';
 import Pokedex from '../../../screens/Pokedex';
 
+// Esto es lo requerido para crear un menu de navegación mobile, y con los header de cada screen
+
 const Tab = createBottomTabNavigator();
 
 const renderPokedexImage = () => {
     return(
         <Image 
             source={require('../../../assets/pokeball.png')}
-            style={{ width: 75, height: 75, marginTop: -30 }}
+            style={{ width: 65, height: 65, marginTop: -30 }}
         />
     )
 }
@@ -26,9 +28,10 @@ const TabNavigation = () => {
                 component={Favorite} 
                 options={{
                     title: 'Favoritos',
+                    headerTitleAlign: 'center',
                     tabBarIcon: ({ color, size }) => (
                         <Icon name='heart' color={color} size={size} /> 
-                    )
+                    ),
                 }}
             />
 
@@ -37,7 +40,9 @@ const TabNavigation = () => {
                 component={Pokedex}
                 options={{
                     title: "",
-                    tabBarIcon: () => renderPokedexImage()
+                    headerTitleAlign: 'center',
+                    tabBarIcon: () => renderPokedexImage(),
+                    headerTitle: "Pokedex",
                 }} 
             />
 
@@ -46,6 +51,7 @@ const TabNavigation = () => {
                 component={Account} 
                 options={{
                     title: 'Mi cuenta',
+                    headerTitleAlign: 'center',
                     tabBarIcon: ({ color, size }) => (
                         <Icon name='user' color={color} size={size} />
                     )

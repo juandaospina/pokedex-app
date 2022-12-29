@@ -6,14 +6,27 @@ import Account from './src/screens/Account';
 import Favorite from './src/screens/Favorites';
 import Pokedex from './src/screens/Pokedex';
 import TabNavigation from './src/components/Navigation/TabNavigation';
+import PokemonDetails from './src/screens/PokemonDetails';
 
 
-// const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <TabNavigation />
+      <Stack.Navigator>
+        <Stack.Screen 
+          name='home'
+          component={TabNavigation}
+          options={{
+            headerShown: false
+          }}
+        />
+        <Stack.Screen 
+          name='pokemon' 
+          component={PokemonDetails} 
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

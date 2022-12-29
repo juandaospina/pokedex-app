@@ -8,4 +8,4 @@ PASOS CREACIÓN APP REACT NATIVE CON EXPO
 3. Ingresar en Hello React Navigation 
    3.1 yarn add @react-navigation/native-stack
    3.2 seguir pasos de documentación
-4. Si se va usar el tab menu de navegación, seguir documentación de pasos 
+4. Si se va usar el tab menu de navegación, seguir documentación de pasos, ejemplo de creación /components/Navigation 
