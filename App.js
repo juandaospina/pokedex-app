@@ -1,12 +1,9 @@
-import { StyleSheet } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native"
 
-import Account from './src/screens/Account';
-import Favorite from './src/screens/Favorites';
-import Pokedex from './src/screens/Pokedex';
-import TabNavigation from './src/components/Navigation/TabNavigation';
-import PokemonDetails from './src/screens/PokemonDetails';
+import TabNavigation from "./src/components/Navigation/TabNavigation";
+import PokemonDetails from "./src/screens/PokemonDetails";
+
 
 
 const Stack = createNativeStackNavigator();
@@ -16,14 +13,14 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen 
-          name='home'
+          name="home"
           component={TabNavigation}
           options={{
             headerShown: false
           }}
         />
         <Stack.Screen 
-          name='pokemon' 
+          name="pokemon" 
           component={PokemonDetails} 
         />
       </Stack.Navigator>
@@ -31,17 +28,18 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#fff",
+//     alignItems: "center",
+//     justifyContent: "center",
+//     fontFamily: "Poppins"
+//   },
+// });
 
 {/* <Stack.Navigator>
-  <Stack.Screen name='Account' component={Account}/>
-  <Stack.Screen name='Pokedex' component={Favorite}/>
-  <Stack.Screen name='Favorites' component={Pokedex}/>
+  <Stack.Screen name="Account" component={Account}/>
+  <Stack.Screen name="Pokedex" component={Favorite}/>
+  <Stack.Screen name="Favorites" component={Pokedex}/>
 </Stack.Navigator> */}

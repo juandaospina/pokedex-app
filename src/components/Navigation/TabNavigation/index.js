@@ -21,8 +21,7 @@ const renderPokedexImage = () => {
 
 const TabNavigation = () => {
     return(
-        <Tab.Navigator>
-            
+        <Tab.Navigator initialRouteName='Pokedex'>
             <Tab.Screen  
                 name='Favorites' 
                 component={Favorite} 

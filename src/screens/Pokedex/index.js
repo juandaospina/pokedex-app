@@ -1,19 +1,31 @@
-import React, { useEffect, useState } from 'react'
-import { View } from 'react-native'
-
-import { getAllPokemons } from '../../api/getPokemons';
-import { getPokemonsDetails } from '../../api/getPokemons';
+import React, { useCallback, useEffect, useState } from "react"
+import { useFonts } from "expo-font";
+import { View } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+import { getAllPokemons, getPokemonsDetails } from '../../api/getPokemons';
 import PokemonList from '../../containers/PokemonList';
 
+SplashScreen.preventAutoHideAsync();
 
 const Pokedex = () => {
-
   const [ pokemons, setPokemons ] = useState([]);
   const [ nextPagination, setNextPagination ] = useState(null);
+  // const [ fontsLoaded ] = useFonts({
+  //   'Poppins': require('../../assets/fonts/Poppins-Bold.ttf')
+  // });
+
+  // const onLayoutRootView = useCallback( async () => {
+  //   if(fontsLoaded) {
+  //     await SplashScreen.hideAsync();
+  //   }
+  // }, [fontsLoaded])
+
+  // if(!fontsLoaded) return null;
   
   const loadPokemons = async () => {
     try {
       const response = await getAllPokemons(nextPagination);
+      // console.log("[FILE_POKEDEX_RESPONSE_API]", response)
       setNextPagination(response.next);
       const pokemonsList = [];
 

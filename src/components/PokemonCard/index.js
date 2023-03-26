@@ -6,11 +6,15 @@ import {
   TouchableWithoutFeedback 
 } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import { getColorByType } from '../../utils/getColorByType';
 
 
 const PokemonCard = ({pokemon}) => {
-
   const navigation = useNavigation();
+  const color = getColorByType(pokemon.type);
+  /// console.log("[POKEMONNNNNN]", pokemon.type)
+
+  const containerStyle = [{backgroundColor: color, ...styles.bgStyle}]
 
   const goToPokemonItem = () => {
     navigation.navigate('pokemon', { id: pokemon.id });
@@ -20,7 +24,7 @@ const PokemonCard = ({pokemon}) => {
     <TouchableWithoutFeedback onPress={goToPokemonItem}>
         <View style={styles.card}>
           <View style={styles.spacing}>
-            <View style={styles.bgStyle}>
+            <View style={containerStyle}>
               <Text style={styles.name}>{pokemon.name}</Text>
               <Text style={styles.number}>{pokemon.id}</Text>
               <Image source={{uri: pokemon.image}} style={styles.image} />
@@ -35,7 +39,8 @@ const styles = StyleSheet.create({
     card: {
       flex: 1,
       top: 2,
-      height: 130
+      height: 130,
+      borderColor: "#000f3d"
     },
     spacing: {
       flex: 1,
@@ -44,8 +49,8 @@ const styles = StyleSheet.create({
     bgStyle: {
       flex: 1,
       borderColor: "#fff",
-      backgroundColor: "#E5E7E9",
-      borderRadius: 15
+      borderRadius: 15,
+      opacity: 0.8,
     },
     number: {
       position: "absolute",
@@ -66,7 +71,8 @@ const styles = StyleSheet.create({
       bottom: 2,
       right: 2,
       width: 90,
-      height: 90
+      height: 90,
+      flex: 1
     }
 })
 
